@@ -72,10 +72,12 @@
         border-radius: 4px;
         cursor: pointer;
         margin-bottom: 10px;
+        transition: filter 0.3s ease-in-out;
       }
 
       button:hover {
         background-color: #3e8e41;
+        filter: brightness(120%) contrast(150%) drop-shadow(0 0 10px #fff);
       }
 
       .temp-message {
@@ -122,7 +124,9 @@
       <div class="button-container">
         <a href="https://academic-tecshop.catalog.yampi.io/" target="_blank"><button>Acessar Site</button></a>
       </div>
-      <button onclick="copyToClipboard('felipejoin46@gmail.com')">Copiar código Pix</button>
+      <div class="button-container">
+        <button onclick="copyToClipboard('felipejoin46@gmail.com')">Copiar código Pix</button>
+      </div>
       <div class="temp-message" id="tempMessage"></div>
     </div>
   </body>
