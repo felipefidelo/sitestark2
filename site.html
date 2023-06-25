@@ -40,7 +40,6 @@
         border-radius: 4px;
         cursor: pointer;
         margin-bottom: 10px;
-        transition: background-color 0.3s ease;
       }
 
       button:hover {
@@ -53,43 +52,11 @@
         margin-top: 10px;
         display: none;
       }
-
-      .heart {
-        position: absolute;
-        animation: heart 1.5s ease-in-out;
-        font-size: 24px;
-      }
-
-      @keyframes heart {
-        0% {
-          opacity: 0;
-          transform: scale(0.5) rotate(45deg);
-        }
-        50% {
-          opacity: 1;
-          transform: scale(1.2) rotate(45deg);
-        }
-        100% {
-          opacity: 0;
-          transform: scale(0.5) rotate(45deg);
-        }
-      }
     </style>
-  </head>
-  <body>
-    <div class="glass">
-      <p>Colaborar para o desenvolvimento da Stark Everything, uma loja virtual de diversas categorias! Atualmente, você pode estar acessando o site clicando em "acessar site". Doe qualquer valor que você desejar!</p>
-      <img src="https://ustreggl.sirv.com/rounded-in-photoretrica.png" alt="Stark Everything">
-      <a href="https://academic-tecshop.catalog.yampi.io/"><button>Acessar Site</button></a>
-      <button onclick="copyToClipboard('felipejoin46@gmail.com'); showTempMessage('Código Pix copiado!', 4000); showHearts()">Copiar código Pix</button>
-      <div class="temp-message" id="tempMessage"></div>
-      <button onclick="toggleAudio()" id="audioButton">Play Sound</button>
-    </div>
-    <audio id="audio" loop>
-      <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+      var audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
+
       function copyToClipboard(text) {
         var dummy = document.createElement("textarea");
         document.body.appendChild(dummy);
@@ -97,6 +64,9 @@
         dummy.select();
         document.execCommand("copy");
         document.body.removeChild(dummy);
+
+        showTempMessage('Código Pix copiado!', 4000);
+        playSound();
       }
 
       function showTempMessage(message, duration) {
@@ -108,66 +78,18 @@
         }, duration);
       }
 
-      function showHearts() {
-        var heartsContainer = document.createElement("div");
-        heartsContainer.style.position = "fixed";
-        heartsContainer.style.top = "0";
-        heartsContainer.style.left = "0";
-        heartsContainer.style.width = "100%";
-        heartsContainer.style.height = "100%";
-        heartsContainer.style.pointerEvents = "none";
-        document.body.appendChild(heartsContainer);
-
-        var heartIcon = document.createElement("span");
-        heartIcon.innerHTML = "&hearts;";
-        heartIcon.classList.add("heart");
-
-        var maxHearts = 10;
-        var heartSize = 24;
-        var animationDuration = 1500;
-
-        var animateHeart = function (heart) {
-          var initialX = Math.random() * window.innerWidth;
-          var finalX = initialX - 100 + Math.random() * 200;
-          var heartDelay = Math.random() * 500;
-          var heartDuration = Math.random() * 1000 + animationDuration;
-
-          heart.style.left = initialX + "px";
-          heart.style.opacity = "0";
-          heart.style.animationDelay = heartDelay + "ms";
-          heart.style.animationDuration = heartDuration + "ms";
-
-          heartsContainer.appendChild(heart);
-
-          setTimeout(function () {
-            heart.style.transform = "translateY(100vh) rotate(45deg) scale(0.5)";
-            heart.style.opacity = "1";
-          }, 10);
-
-          setTimeout(function () {
-            heartsContainer.removeChild(heart);
-          }, heartDuration);
-        };
-
-        for (var i = 0; i < maxHearts; i++) {
-          var heart = heartIcon.cloneNode(true);
-          animateHeart(heart);
-        }
-      }
-
-      var audio = document.getElementById("audio");
-      var audioButton = document.getElementById("audioButton");
-
-      function toggleAudio() {
-        if (audio.paused) {
-          audio.play();
-          audioButton.innerHTML = "Pause Sound";
-        } else {
-          audio.pause();
-          audioButton.innerHTML = "Play Sound";
-        }
+      function playSound() {
+        audio.play();
       }
     </script>
+  </head>
+  <body>
+    <div class="glass">
+      <p>Colaborar para o desenvolvimento da Stark Everything, uma loja virtual de diversas categorias! Atualmente, você pode estar acessando o site clicando em "acessar site". Doe qualquer valor que você desejar!</p>
+      <img src="https://ustreggl.sirv.com/rounded-in-photoretrica.png" alt="Stark Everything">
+      <a href="https://academic-tecshop.catalog.yampi.io/"><button>Acessar Site</button></a>
+      <button onclick="copyToClipboard('felipejoin46@gmail.com')">Copiar código Pix</button>
+      <div class="temp-message" id="tempMessage"></div>
+    </div>
   </body>
 </html>
-
