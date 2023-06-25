@@ -53,9 +53,8 @@
         display: none;
       }
     </style>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-      var audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
+      var clickSound = new Audio('https://www.soundjay.com/button/sounds/button-3.mp3');
 
       function copyToClipboard(text) {
         var dummy = document.createElement("textarea");
@@ -66,7 +65,7 @@
         document.body.removeChild(dummy);
 
         showTempMessage('Código Pix copiado!', 4000);
-        playSound();
+        playClickSound();
       }
 
       function showTempMessage(message, duration) {
@@ -78,8 +77,9 @@
         }, duration);
       }
 
-      function playSound() {
-        audio.play();
+      function playClickSound() {
+        clickSound.currentTime = 0;
+        clickSound.play();
       }
     </script>
   </head>
