@@ -1,110 +1,104 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        background: url(https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg) no-repeat center center fixed;
-        background-size: cover;
-        padding: 20px;
-      }
 
-      .glass {
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        padding: 20px;
-        border-radius: 10px;
-        margin: 0 auto;
-        max-width: 400px;
-      }
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: url(https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg) no-repeat center center fixed;
+      background-size: cover;
+      padding: 20px;
+    }
 
-      p {
-        font-size: 1.2em;
-        color: white;
-        text-shadow: 0 0 10px white;
-      }
+    .glass {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 10px;
+      margin: 0 auto;
+      max-width: 400px;
+    }
 
-      img {
-        max-width: 100%;
-        height: auto;
-        margin-bottom: 20px;
-      }
+    p {
+      font-size: 1.2em;
+      color: white;
+      text-shadow: 0 0 10px white;
+    }
 
-      button {
-        background-color: #4CAF50;
-        color: white;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        margin-bottom: 10px;
-      }
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+      transition: filter 0.3s ease-in-out;
+    }
 
-      button:hover {
-        background-color: #3e8e41;
-      }
+    img:hover {
+      filter: brightness(150%) saturate(150%);
+    }
 
-      .temp-message {
-        color: white;
-        font-weight: bold;
-        margin-top: 10px;
-        display: none;
-      }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
 
-      .instagram-button {
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        margin-bottom: 10px;
-      }
+    button:hover {
+      background-color: #3e8e41;
+    }
 
-      .instagram-button img {
-        width: 40px;
-        height: 40px;
-      }
-    </style>
-    <script>
-      var clickSound = new Audio('https://www.soundjay.com/button/sounds/button-3.mp3');
+    .temp-message {
+      color: white;
+      font-weight: bold;
+      margin-top: 10px;
+      display: none;
+    }
+  </style>
+  <script>
+    var clickSound = new Audio('https://www.soundjay.com/button/sounds/button-3.mp3');
 
-      function copyToClipboard(text) {
-        var dummy = document.createElement("textarea");
-        document.body.appendChild(dummy);
-        dummy.value = text;
-        dummy.select();
-        document.execCommand("copy");
-        document.body.removeChild(dummy);
+    function copyToClipboard(text) {
+      var dummy = document.createElement("textarea");
+      document.body.appendChild(dummy);
+      dummy.value = text;
+      dummy.select();
+      document.execCommand("copy");
+      document.body.removeChild(dummy);
 
-        showTempMessage('Código Pix copiado!', 4000);
-        playClickSound();
-      }
+      showTempMessage('Código Pix copiado!', 4000);
+      playClickSound();
+    }
 
-      function showTempMessage(message, duration) {
-        var tempMessage = document.getElementById("tempMessage");
-        tempMessage.textContent = message;
-        tempMessage.style.display = "block";
-        setTimeout(function () {
-          tempMessage.style.display = "none";
-        }, duration);
-      }
+    function showTempMessage(message, duration) {
+      var tempMessage = document.getElementById("tempMessage");
+      tempMessage.textContent = message;
+      tempMessage.style.display = "block";
+      setTimeout(function () {
+        tempMessage.style.display = "none";
+      }, duration);
+    }
 
-      function playClickSound() {
-        clickSound.currentTime = 0;
-        clickSound.play();
-      }
-    </script>
-  </head>
-  <body>
-    <div class="glass">
-      <p>Colaborar para o desenvolvimento da Stark Everything, uma loja virtual de diversas categorias! Atualmente, você pode estar acessando o site clicando em "acessar site". Doe qualquer valor que você desejar!</p>
-      <img src="https://ustreggl.sirv.com/rounded-in-photoretrica.png" alt="Stark Everything">
-      <a href="https://academic-tecshop.catalog.yampi.io/"><button>Acessar Site</button></a>
-      <button onclick="copyToClipboard('felipejoin46@gmail.com')">Copiar código Pix</button>
-      <div class="temp-message" id="tempMessage"></div>
-      <a href="https://www.instagram.com/fidelo34k" target="_blank" class="instagram-button"><img src="https://ustreggl.sirv.com/2wPYyq9Ejn4.png" alt="Instagram"></a>
-    </div>
-  </body>
+    function playClickSound() {
+      clickSound.currentTime = 0;
+      clickSound.play();
+    }
+  </script>
+</head>
+
+<body>
+  <div class="glass">
+    <p>Colaborar para o desenvolvimento da Stark Everything, uma loja virtual de diversas categorias! Atualmente, você pode estar acessando o site clicando em "acessar site". Doe qualquer valor que você desejar!</p>
+    <img src="https://ustreggl.sirv.com/rounded-in-photoretrica.png" alt="Stark Everything">
+    <a href="https://academic-tecshop.catalog.yampi.io/"><button>Acessar Site</button></a>
+    <button onclick="copyToClipboard('felipejoin46@gmail.com')">Copiar código Pix</button>
+    <div class="temp-message" id="tempMessage"></div>
+  </div>
+</body>
+
 </html>
 
