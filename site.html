@@ -1,103 +1,130 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 20px;
+        background: url(https://source.unsplash.com/random/800x600?dark) no-repeat center center fixed;
+        background-size: cover;
+      }
 
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 20px;
-      background: url(https://source.unsplash.com/random/800x600?dark) no-repeat center center fixed;
-      background-size: cover;
-    }
+      .glass {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        border-radius: 10px;
+        margin: 0 auto;
+        max-width: 400px;
+      }
 
-    .glass {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      padding: 20px;
-      border-radius: 10px;
-      margin: 0 auto;
-      max-width: 400px;
-    }
+      p {
+        font-size: 1.2em;
+        color: white;
+        text-shadow: 0 0 10px white;
+      }
 
-    p {
-      font-size: 1.2em;
-      color: white;
-      text-shadow: 0 0 10px white;
-    }
+      img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+        transition: filter 0.3s ease-in-out;
+      }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      margin-bottom: 20px;
-      transition: filter 0.3s ease-in-out;
-    }
+      img:hover {
+        filter: brightness(120%) contrast(150%) drop-shadow(0 0 10px #fff);
+      }
 
-    img:hover {
-      filter: brightness(120%) contrast(150%) drop-shadow(0 0 10px #fff);
-    }
+      .button-container {
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+      }
 
-    button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-bottom: 10px;
-    }
+      .button-container::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.3);
+        transition: left 0.3s ease-in-out;
+        z-index: 1;
+      }
 
-    button:hover {
-      background-color: #3e8e41;
-    }
+      .button-container:hover::after {
+        left: 100%;
+      }
 
-    .temp-message {
-      color: white;
-      font-weight: bold;
-      margin-top: 10px;
-      display: none;
-    }
-  </style>
-  <script>
-    var clickSound = new Audio('https://www.soundjay.com/button/sounds/button-3.mp3');
+      .button-container button {
+        position: relative;
+        z-index: 2;
+      }
 
-    function copyToClipboard(text) {
-      var dummy = document.createElement("textarea");
-      document.body.appendChild(dummy);
-      dummy.value = text;
-      dummy.select();
-      document.execCommand("copy");
-      document.body.removeChild(dummy);
+      button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-bottom: 10px;
+      }
 
-      showTempMessage('Código Pix copiado!', 4000);
-      playClickSound();
-    }
+      button:hover {
+        background-color: #3e8e41;
+      }
 
-    function showTempMessage(message, duration) {
-      var tempMessage = document.getElementById("tempMessage");
-      tempMessage.textContent = message;
-      tempMessage.style.display = "block";
-      setTimeout(function () {
-        tempMessage.style.display = "none";
-      }, duration);
-    }
+      .temp-message {
+        color: white;
+        font-weight: bold;
+        margin-top: 10px;
+        display: none;
+      }
+    </style>
+    <script>
+      var clickSound = new Audio('https://www.soundjay.com/button/sounds/button-3.mp3');
 
-    function playClickSound() {
-      clickSound.currentTime = 0;
-      clickSound.play();
-    }
-  </script>
-</head>
+      function copyToClipboard(text) {
+        var dummy = document.createElement("textarea");
+        document.body.appendChild(dummy);
+        dummy.value = text;
+        dummy.select();
+        document.execCommand("copy");
+        document.body.removeChild(dummy);
 
-<body>
-  <div class="glass">
-    <p>Colaborar para o desenvolvimento da Stark Everything, uma loja virtual de diversas categorias! Atualmente, você pode estar acessando o site clicando em "acessar site". Doe qualquer valor que você desejar!</p>
-    <img src="https://ustreggl.sirv.com/rounded-in-photoretrica.png" alt="Stark Everything">
-    <a href="https://academic-tecshop.catalog.yampi.io/"><button>Acessar Site</button></a>
-    <button onclick="copyToClipboard('felipejoin46@gmail.com')">Copiar código Pix</button>
-    <div class="temp-message" id="tempMessage"></div>
-  </div>
-</body>
+        showTempMessage('Código Pix copiado!', 4000);
+        playClickSound();
+      }
 
+      function showTempMessage(message, duration) {
+        var tempMessage = document.getElementById("tempMessage");
+        tempMessage.textContent = message;
+        tempMessage.style.display = "block";
+        setTimeout(function () {
+          tempMessage.style.display = "none";
+        }, duration);
+      }
+
+      function playClickSound() {
+        clickSound.currentTime = 0;
+        clickSound.play();
+      }
+    </script>
+  </head>
+  <body>
+    <div class="glass">
+      <p>Colaborar para o desenvolvimento da Stark Everything, uma loja virtual de diversas categorias! Atualmente, você pode estar acessando o site clicando em "acessar site". Doe qualquer valor que você desejar!</p>
+      <img src="https://ustreggl.sirv.com/rounded-in-photoretrica.png" alt="Stark Everything">
+      <div class="button-container">
+        <a href="https://academic-tecshop.catalog.yampi.io/"><button>Acessar Site</button></a>
+      </div>
+      <button onclick="copyToClipboard('felipejoin46@gmail.com')">Copiar código Pix</button>
+      <div class="temp-message" id="tempMessage"></div>
+    </div>
+  </body>
 </html>
+
