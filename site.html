@@ -41,13 +41,22 @@
       button:hover {
         background-color: #3e8e41;
       }
+
+      .temp-message {
+        color: white;
+        font-weight: bold;
+        margin-top: 10px;
+        display: none;
+      }
     </style>
   </head>
   <body>
     <div class="glass">
       <p>Colaborar para o desenvolvimento da Stark Everything, uma loja virtual de diversas categorias. Atualmente, você pode estar acessando o site clicando em "acessar site". doe qualquer valor que você desejar!</p>
       <img src="https://o.remove.bg/downloads/a53a6608-bccf-4d3e-9d62-cf2028cffaba/rounded-in-photoretrica-removebg-preview.png" alt="Stark Everything">
-      <button onclick="copyToClipboard('felipejoin46@gmail.com')">Copiar código Pix</button>
+      <a href="https://academic-tecshop.catalog.yampi.io/"><button>Acessar Site</button></a>
+      <button onclick="copyToClipboard('felipejoin46@gmail.com'); showTempMessage('Código Pix copiado!', 4000)">Copiar código Pix</button>
+      <div class="temp-message" id="tempMessage"></div>
     </div>
     <script>
       function copyToClipboard(text) {
@@ -58,6 +67,16 @@
         document.execCommand("copy");
         document.body.removeChild(dummy);
       }
+
+      function showTempMessage(message, duration) {
+        var tempMessage = document.getElementById("tempMessage");
+        tempMessage.textContent = message;
+        tempMessage.style.display = "block";
+        setTimeout(function () {
+          tempMessage.style.display = "none";
+        }, duration);
+      }
     </script>
   </body>
 </html>
+
