@@ -1,92 +1,87 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        background: url(https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg) no-repeat center center fixed;
-        background-size: cover;
-        padding: 20px;
-      }
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
 
-      .glass {
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        padding: 20px;
-        border-radius: 10px;
-        margin: 0 auto;
-        max-width: 400px;
-      }
+    h1 {
+      color: #333;
+      text-align: center;
+    }
 
-      p {
-        font-size: 1.2em;
-        color: white;
-        text-shadow: 0 0 10px white;
-      }
+    .blog-post {
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-      img {
-        max-width: 100%;
-        height: auto;
-        margin-bottom: 20px;
-      }
+    .blog-post h2 {
+      color: #333;
+      margin-top: 0;
+    }
 
-      button {
-        background-color: #4CAF50;
-        color: white;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        margin-bottom: 10px;
-      }
+    .blog-post p {
+      color: #666;
+      line-height: 1.5;
+    }
 
-      button:hover {
-        background-color: #3e8e41;
-      }
+    .blog-post .author {
+      color: #999;
+      font-style: italic;
+    }
 
-      .temp-message {
-        color: white;
-        font-weight: bold;
-        margin-top: 10px;
-        display: none;
-      }
-    </style>
-    <script>
-      function copyToClipboard(text) {
-        var dummy = document.createElement("textarea");
-        document.body.appendChild(dummy);
-        dummy.value = text;
-        dummy.select();
-        document.execCommand("copy");
-        document.body.removeChild(dummy);
+    .blog-post .date {
+      color: #999;
+      font-size: 0.8em;
+    }
 
-        var audio = new Audio('click-sound.mp3');
-        audio.play();
-      }
+    .blog-post .read-more {
+      display: block;
+      text-align: right;
+      margin-top: 10px;
+      color: #333;
+      text-decoration: underline;
+    }
 
-      function showTempMessage(message, duration) {
-        var tempMessage = document.getElementById("tempMessage");
-        tempMessage.textContent = message;
-        tempMessage.style.display = "block";
-        setTimeout(function () {
-          tempMessage.style.display = "none";
-        }, duration);
-      }
-    </script>
-  </head>
-  <body>
-    <div class="glass">
-      <p>Colaborar para o desenvolvimento da Stark Everything, uma loja virtual de diversas categorias! Atualmente, você pode estar acessando o site clicando em "acessar site". Doe qualquer valor que você desejar!</p>
-      <img src="https://ustreggl.sirv.com/rounded-in-photoretrica.png" alt="Stark Everything">
-      <div>
-        <a href="https://academic-tecshop.catalog.yampi.io/">
-          <button>Acessar Site</button>
-        </a>
-        <button onclick="copyToClipboard('felipejoin46@gmail.com'); showTempMessage('Código Pix copiado!', 4000)">Copiar código Pix</button>
-      </div>
-      <div class="temp-message" id="tempMessage"></div>
-    </div>
-  </body>
+    .blog-post .read-more:hover {
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Meu Blog</h1>
+
+  <div class="blog-post">
+    <h2>Título do Post 1</h2>
+    <img src="https://ustreggl.sirv.com/rounded-in-photoretrica.png" alt="Imagem do Post 1">
+    <p>Colaborar para o desenvolvimento da Stark Everything, uma loja virtual de diversas categorias! Atualmente, você pode estar acessando o site clicando em "acessar site". Doe qualquer valor que você desejar!</p>
+    <p class="author">Por John Doe</p>
+    <p class="date">Publicado em 25 de junho de 2023</p>
+    <a href="#" class="read-more">Leia mais</a>
+  </div>
+
+  <div class="blog-post">
+    <h2>Título do Post 2</h2>
+    <img src="https://ustreggl.sirv.com/rounded-in-photoretrica.png" alt="Imagem do Post 2">
+    <p>Colaborar para o desenvolvimento da Stark Everything, uma loja virtual de diversas categorias! Atualmente, você pode estar acessando o site clicando em "acessar site". Doe qualquer valor que você desejar!</p>
+    <p class="author">Por Jane Smith</p>
+    <p class="date">Publicado em 28 de junho de 2023</p>
+    <a href="#" class="read-more">Leia mais</a>
+  </div>
+
+  <div class="blog-post">
+    <h2>Título do Post 3</h2>
+    <img src="https://ustreggl.sirv.com/rounded-in-photoretrica.png" alt="Imagem do Post 3">
+    <p>Colaborar para o desenvolvimento da Stark Everything, uma loja virtual de diversas categorias! Atualmente, você pode estar acessando o site clicando em "acessar site". Doe qualquer valor que você desejar!</p>
+    <p class="author">Por Mark Johnson</p>
+    <p class="date">Publicado em 30 de junho de 2023</p>
+    <a href="#" class="read-more">Leia mais</a>
+  </div>
+</body>
 </html>
