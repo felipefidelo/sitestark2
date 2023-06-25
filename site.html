@@ -11,47 +11,82 @@
         padding: 20px;
       }
 
-      .glitch-container {
-        position: relative;
-        display: inline-block;
-        overflow: hidden;
+      .glass {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        border-radius: 10px;
+        margin: 0 auto;
+        max-width: 400px;
       }
 
-      .glitch-container:hover .glitch-effect {
-        animation: glitch-animation 1s infinite;
+      p {
+        font-size: 1.2em;
+        color: white;
+        text-shadow: 0 0 10px white;
       }
 
-      .glitch-effect {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+      img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
       }
 
-      @keyframes glitch-animation {
-        0% {
-          transform: scale(1);
-        }
-        25% {
-          transform: scale(0.98) translate(-2px, 2px);
-        }
-        50% {
-          transform: scale(0.96) translate(2px, -1px);
-        }
-        75% {
-          transform: scale(0.99) translate(1px, 0);
-        }
-        100% {
-          transform: scale(1);
-        }
+      button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-bottom: 10px;
+      }
+
+      button:hover {
+        background-color: #3e8e41;
+      }
+
+      .temp-message {
+        color: white;
+        font-weight: bold;
+        margin-top: 10px;
+        display: none;
       }
     </style>
+    <script>
+      function copyToClipboard(text) {
+        var dummy = document.createElement("textarea");
+        document.body.appendChild(dummy);
+        dummy.value = text;
+        dummy.select();
+        document.execCommand("copy");
+        document.body.removeChild(dummy);
+
+        var audio = new Audio('click-sound.mp3');
+        audio.play();
+      }
+
+      function showTempMessage(message, duration) {
+        var tempMessage = document.getElementById("tempMessage");
+        tempMessage.textContent = message;
+        tempMessage.style.display = "block";
+        setTimeout(function () {
+          tempMessage.style.display = "none";
+        }, duration);
+      }
+    </script>
   </head>
   <body>
-    <div class="glitch-container">
+    <div class="glass">
+      <p>Colaborar para o desenvolvimento da Stark Everything, uma loja virtual de diversas categorias! Atualmente, você pode estar acessando o site clicando em "acessar site". Doe qualquer valor que você desejar!</p>
       <img src="https://ustreggl.sirv.com/rounded-in-photoretrica.png" alt="Stark Everything">
-      <div class="glitch-effect"></div>
+      <div>
+        <a href="https://academic-tecshop.catalog.yampi.io/">
+          <button>Acessar Site</button>
+        </a>
+        <button onclick="copyToClipboard('felipejoin46@gmail.com'); showTempMessage('Código Pix copiado!', 4000)">Copiar código Pix</button>
+      </div>
+      <div class="temp-message" id="tempMessage"></div>
     </div>
   </body>
 </html>
