@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background: url(https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg) no-repeat center center fixed;
+        background-size: cover;
+      }
+
+      .glass {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px auto;
+        max-width: 400px;
+      }
+
+      p {
+        font-size: 1.2em;
+        color: white;
+        text-shadow: 0 0 10px white;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #3e8e41;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="glass">
+      <p>Colaborar para o desenvolvimento da Stark Everything, doe qualquer valor que você desejar!</p>
+      <img src="https://o.remove.bg/downloads/a53a6608-bccf-4d3e-9d62-cf2028cffaba/rounded-in-photoretrica-removebg-preview.png" alt="Stark Everything">
+      <button onclick="copyToClipboard('felipejoin46@gmail.com')">Copiar código Pix</button>
+    </div>
+    <script>
+      function copyToClipboard(text) {
+        var dummy = document.createElement("textarea");
+        document.body.appendChild(dummy);
+        dummy.value = text;
+        dummy.select();
+        document.execCommand("copy");
+        document.body.removeChild(dummy);
+      }
+    </script>
+  </body>
+</html>
